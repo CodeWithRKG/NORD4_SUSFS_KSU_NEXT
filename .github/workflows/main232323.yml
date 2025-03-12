@@ -228,7 +228,7 @@ jobs:
           git add .
           git commit -m "test"
           #sed -i 's/export REPACK_IMG=true/export REPACK_IMG=false/g' 
-          for file in $(grep -R ${GITHUB_WORKSPACE} -e '-dirty' 2>/dev/null | cut -d':' -f1);do echo $file;sed -i 's/-dirty//g' $file;done
+          for file in $(grep -R ${GITHUB_WORKSPACE} -e '-dirty' 2>/dev/null | cut -d':' -f1 | grep -E '(/scripts/|Kconfig)' 2>/dev/null);do echo $file;sed -i 's/-dirty//g' $file;done
           # Modified build command with correct syntax
           ./build_with_bazel.py \
             -t pineapple \
