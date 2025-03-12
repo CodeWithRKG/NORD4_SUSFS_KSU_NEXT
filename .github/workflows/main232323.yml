@@ -231,7 +231,7 @@ jobs:
           #git add .
           #git commit -m "test"
           #sed -i 's/export REPACK_IMG=true/export REPACK_IMG=false/g' 
-          for file in $(find ${GITHUB_WORKSPACE} -type f -name 'setlocalversion' 2>/dev/null);do echo "XXXXXX $file";sed -E -i 's/(.+)res\=.+/\1res="6.1.75-android14-11-o-g6e21b516d117"/g' $file;done
+          for file in $(find ${GITHUB_WORKSPACE} -type f -name 'setlocalversion' 2>/dev/null);do echo "XXXXXX $file";sed -E -i 's/(.+)res\=.+/\1res="-android14-11-o-g6e21b516d117"/g' $file;done
           # Modified build command with correct syntax
           ./build_with_bazel.py \
             -t pineapple \
